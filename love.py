@@ -2,6 +2,7 @@ from kivy.app import App
 from kivy.uix.label import Label
 from kivy.uix.button import Button
 from kivy.uix.boxlayout import BoxLayout
+from random import randint
 import random
 
 reasons_love = ['Самая красивая', 'Самая милая', 'Открытая', 'Любящая',
@@ -21,7 +22,7 @@ class Main(App):
         box = BoxLayout(orientation='vertical')
         btn1 = Button(text='Нажми на меня <3',
                       font_size=36,
-                      background_color= [.6, 0, 0, 1],
+                      background_color= (255/255, 140/255, 0/255, 1),
                       background_normal = '',
                       on_press = self.btn_press)
         label = Label(text=f'Я еще буду доделывать приложение,\n пока это исходник'
@@ -34,6 +35,7 @@ class Main(App):
 
     def btn_press(self, instance):
         instance.text = random.choice(reasons_love)
+        instance.background_color = (randint(0, 255)/255, randint(0, 255)/255, randint(0, 255)/255, 1)
 
 if __name__ == "__main__":
     Main().run()
